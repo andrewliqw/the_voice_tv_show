@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <br /><br />
+      <form class="" action="{% url 'score:admin_view' %}" method="post">
+        <h1 class="text-center">Please choose the team:</h1>
+        {% csrf_token %}
+        <div class="row form-group">
+          <label class="col-sm-4" for="{{ form.teams.auto_id }}">{{ form.teams.label }}</label>
+          <div class="col-sm-8">{% render_field form.teams class+="form-control" %}</div>
+        </div>
+
+        <div class="row justify-content-center">
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="hidden" name="next" value="{{ next }}">
+        </div>
+        </div>
+
+      </form>
+
+      <br /><br />
+      <table class="table">
+        <thead>
+          <tr><th>Team name</th><th>Average score</th></tr>
+        </thead>
+        <tbody>
+          {% for team in all_teams %}
+            <tr><td><a href="{% url 'score:team_view' team.id %}">{{ team.name }}</a></td><td>{{ team.average_score }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

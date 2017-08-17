@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <br/><br/>
+      <h1 class="text-center">Team: {{ team.name }}</h1>
+
+      <table class="table">
+        <thead><tr><th>Candidate</th><th>Average score</th></tr></thead>
+
+        <tbody>
+          {% for candidate in team.candidate_set.all %}
+            <tr><td><a href="{% url 'score:candidate_view' candidate.id %}">{{ candidate.user.username }}</a></td><td>{{ candidate.average_score }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
