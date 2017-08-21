@@ -1,6 +1,17 @@
 # The Voice TV show management system
 
-The front end is being rewritten using Angular 4. The front end will call the restful API in backend to get the data.
+Previous all pages are integrated into the Django code using Django Template System. The front end is being rewritten using Angular 4. The front end will call the restful API in backend to get the data.
+
+* [ ] Log in
+  * [x] Frontend
+  * [ ] Backend Restful API
+*[ ] Admin view
+  *[ ] Frontend
+  *[ ] Backend Restful API
+*[ ] Mentor view
+  *[ ] Frontend
+  *[ ] Backend Restful API
+  
 
 ## Run it in development environment
 
@@ -41,6 +52,7 @@ The front end is being rewritten using Angular 4. The front end will call the re
   ```
 
   Now, you can enter the url (see below for all possible urls) in your favorite browser. For example: http://localhost:4200/login to log into the system.
+  ![Image](./login.png)
 
 
 ## Backend models
