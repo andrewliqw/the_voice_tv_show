@@ -5,12 +5,12 @@ Previous all pages are integrated into the Django code using Django Template Sys
 * [ ] Log in
   * [x] Frontend
   * [ ] Backend Restful API
-*[ ] Admin view
-  *[ ] Frontend
-  *[ ] Backend Restful API
-*[ ] Mentor view
-  *[ ] Frontend
-  *[ ] Backend Restful API
+* [ ] Admin view
+  * [ ] Frontend
+  * [ ] Backend Restful API
+* [ ] Mentor view
+  * [ ] Frontend
+  * [ ] Backend Restful API
   
 
 ## Run it in development environment
