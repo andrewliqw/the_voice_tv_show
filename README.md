@@ -1,15 +1,47 @@
 # The Voice TV show management system
 
+The front end is being rewritten using Angular 4. The front end will call the restful API in backend to get the data.
+
 ## Run it in development environment
 
-First, you need create your own python 3.5 virtual environment and install the required python modules in requirements.txt.
+* Backend: The backend is written in Python/Django. You need enter into the /src/backend directory to run commands which related to the backend.
+  
+  - First, you need create your own python 3.5 virtual environment and install the required python modules in requirements.txt.
 
-Second, start the development server.
-```sh
-python management.py runserver
-```
+  - Second, run the command to create the database table.
+  ```sh
+  python manage.py migrate
+  ```
+  - Third, run the management commands to create some fakes users/activities/scores.
+  ```sh
+  python managy.py create_voice_admin -h
+  python managy.py create_voice_mentor -h
+  python managy.py create_voice_candidate -h
+  python managy.py create_voice_team -h
+  python managy.py create_voice_activity -h
+  python managy.py create_voice_score -h
+  ```
+  
+  - Lastly, start the development backend server.
+  ```sh
+  python management.py runserver
+  ```
 
-Last, enter the url (see below for all possible urls) in your favorite browser. For example: http://localhost:8000/score/mentor to see all the teams and the candidates in each team.
+* Frontend: the front end is written in Angular 4.
+ 
+  - First to install the necessary javascript modules using npm.
+  ```sh
+  npm install
+  ```
+  
+  - After you start the backend server, you can run the following command to start the frontend development server.
+
+  ```
+  npm start
+  ```
+
+  Now, you can enter the url (see below for all possible urls) in your favorite browser. For example: http://localhost:4200/login to log into the system.
+
 
 ## Backend models
 ![Image](./backend_models.gif)
