@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^score/', include('score.urls')),
 
     url(r'^admin/', admin.site.urls),
+
+    url(r'^api/v1/', include('api.v1.urls'))
 ]
