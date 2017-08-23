@@ -4,21 +4,21 @@
       <h1 class="text-center">Welcome to the voice TV show</h1>
       <br />
 
-      <form action="" method="post">
+      <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <div class="row form-group">
-          <label class="col-sm-4">Username</label>
-          <div class="col-sm-8"><input type="text" class="form-control"></div>
+          <label class="col-sm-4" for="username">Username</label>
+          <div class="col-sm-8"><input class="form-control"  [ngClass]="{'is-invalid': f.submitted && !username.valid}" type="text" [(ngModel)]="model.username" #username="ngModel" id="username" name="username" required></div>
         </div>
 
         <div class="row form-group">
-          <label class="col-sm-4">Password</label>
-          <div class="col-sm-8"><input type="password" class="form-control"></div>
+          <label class="col-sm-4" for="password">Password</label>
+          <div class="col-sm-8"><input class="form-control"  [ngClass]="{'is-invalid': f.submitted && !password.valid}" type="password" [(ngModel)]="model.password" #password="ngModel" id="password" name="password" required></div>
         </div>
 
         <div class="row form-group">
           <div class="col-sm-4"></div>
           <div class="col-sm-8">
-            <button type="submit" class="btn btn-primary">Log In</button>
+            <button [disabled]="loading" type="submit" class="btn btn-primary">Log In</button>
           </div>
         </div>
       </form>
