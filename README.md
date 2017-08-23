@@ -2,9 +2,9 @@
 
 Previous all pages are integrated into the Django code using Django Template System. The front end is being rewritten using Angular 4. The front end will call the restful API in backend to get the data.
 
-* [ ] Log in
+* [x] Log in
   * [x] Frontend
-  * [ ] Backend Restful API
+  * [x] Backend Restful API
 * [ ] Admin view
   * [ ] Frontend
   * [ ] Backend Restful API
