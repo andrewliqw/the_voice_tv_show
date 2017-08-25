@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Headers, Http, Response } from '@angular/http'
 
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/mergeMap'
 
 @Injectable()
 export class AuthenticationService {
@@ -24,22 +25,19 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string){
-    var headers = new Headers();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http.post(
       'http://localhost:8000/api/v1/authenticate/',
       JSON.stringify({username: username, password: password}),
       {headers: headers}
-    ).map((response: Response) => {
+    ).flatMap((response: Response) => {
       let user = response.json();
       if (user && user.token) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        this.uerType().subscribe(
-          data => {},
-          error => {}
-        );
       }
+      return this.uerType();
     });
   }
 
