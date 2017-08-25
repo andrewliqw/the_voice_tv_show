@@ -11,6 +11,7 @@ import { LoginComponent } from "./login.component";
 import { MentorComponent } from "./mentor.component"
 import { AlertService } from "./services/alert.service"
 import { AuthenticationService} from "./services/authentication.service"
+import { TeamService } from "./services/team.service"
 
 
 export const ROUTES: Routes = [
@@ -37,7 +38,8 @@ export const ROUTES: Routes = [
   ],
   providers: [
     AlertService,
-    AuthenticationService
+    AuthenticationService,
+    TeamService
   ],
   bootstrap: [AppComponent]
 })

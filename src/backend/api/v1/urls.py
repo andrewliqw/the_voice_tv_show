@@ -11,5 +11,9 @@ from . import views as api_views
 urlpatterns = [
     url(r'^authenticate/$', obtain_jwt_token),
 
-    url(r'^usertype/$', api_views.UserTypeView.as_view())
+    url(r'^usertype/$', api_views.UserTypeView.as_view()),
+
+    url(r'^teamnames/$', api_views.AllTeamNamesView.as_view()),
+
+    url(r'^teamscores/$', api_views.TeamScoresView.as_view()),
 ]

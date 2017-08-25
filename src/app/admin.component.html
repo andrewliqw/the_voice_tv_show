@@ -1,1 +1,38 @@
-<p>Admin user.</p>
+<br />
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <br /><br />
+      <form name="form" (ngSubmit)="f.form.valid && getTeamScores()" #f="ngForm" novalidate>
+        <h1 class="text-center">Please choose the team:</h1>
+        <div class="row form-group">
+          <label class="col-sm-4" for="teams">Teams</label>
+          <div class="col-sm-8">
+            <select class="form-control" id="names" name="teamIDs" multiple [(ngModel)]="selectedTeamIDs">
+              <option *ngFor="let team of allTeamNames" [ngValue]="team[0]">{{ team[1] }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="hidden" name="next" value="{{ next }}">
+        </div>
+        </div>
+
+      </form>
+
+      <br /><br />
+      <table *ngIf="teamScores; else no_team_chosen" class="table">
+        <thead>
+          <tr><th>Team name</th><th>Average score</th></tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let teamScore of teamScores"><td><a href="/team/{{ teamScore.id }}">{{ teamScore.name }}</a></td><td>{{ teamScore.average_score }}</td></tr>
+        </tbody>
+      </table>
+      <ng-template #no_team_chosen><p>You have not chosen teams.</p></ng-template>
+    </div>
+  </div>
+</div>
